@@ -6,6 +6,8 @@ CircuitPilot is a Qwen-powered workflow incident response agent. It turns an amb
 
 Build article: [Building a Qwen agent that cannot approve its own changes](https://tinyopsstudio.com/building-qwen-agent-human-approval)
 
+Need the same evidence-and-approval review for an existing automation? [Buy the fixed-scope $149 TinyOps workflow audit](https://whop.com/joined/tinyops-studio-llc/products/ai-workflow-automation-audit/).
+
 ## What it demonstrates
 
 - Qwen Cloud tool calling over the OpenAI-compatible Chat Completions API.
