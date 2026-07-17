@@ -55,6 +55,15 @@ npm run check
 
 The deterministic benchmark covers four failure classes: connector authentication, payload contract drift, retry amplification, and missing idempotency. It asserts the diagnosis, expected remediation type, approval coverage, and redaction boundary for each case.
 
+With live Qwen Cloud credentials, run the same four cases through Qwen and fail closed if any run degrades, skips additional tool use, misses the expected diagnosis or action, bypasses approval, or leaks a fixture email:
+
+```bash
+export DASHSCOPE_API_KEY="your-qwen-cloud-key"
+npm run live-eval
+```
+
+The evaluation prints only a judge-safe aggregate report. It never prints the API key or raw private values.
+
 ## API
 
 | Method | Route | Purpose |

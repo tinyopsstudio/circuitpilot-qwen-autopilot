@@ -11,6 +11,7 @@
     "start": "node src/server.js",
     "test": "node --test",
     "benchmark": "node scripts/run-benchmark.js",
+    "live-eval": "node scripts/run-live-eval.js --assert",
     "check": "npm test && node scripts/run-benchmark.js --assert"
   },
   "keywords": [

@@ -28,6 +28,7 @@ No prior project contained Qwen Cloud integration, model tool calling, workflow 
 - Added architecture, security, integration, benchmark, and build documentation.
 - Published the open-source repository at https://github.com/tinyopsstudio/circuitpilot-qwen-autopilot.
 - Added Node.js 20 and 22 continuous integration plus Serverless Devs manifest verification.
-- Completed Qwen Cloud signup through business-email verification, country selection, and routine terms; the platform then presented an image CAPTCHA for owner completion.
+- Advanced Qwen Cloud signup through business-email verification, country selection, and routine terms; account creation remains paused at the platform's image CAPTCHA for owner completion.
+- Added a credential-gated live Qwen evaluation that fails closed on fallback, missing tool use, diagnosis/action drift, approval gaps, or redaction failures.
 
 Future entries will record the live Qwen smoke test, Alibaba Cloud deployment, demo video, build article, and Devpost submission.

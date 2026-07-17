@@ -36,5 +36,7 @@ test('executes a Qwen-selected tool and validates the final JSON plan', async ()
   assert.deepEqual(tools, ['inspect_payload_contract']);
   assert.equal(plan.diagnosis.category, 'payload_contract_drift');
   assert.equal(plan.actions[0].type, 'update_field_mapping');
+  assert.match(requestBodies[0].messages[0].content, /Call at least one supplied diagnostic tool/);
+  assert.match(requestBodies.at(-1).messages.at(-1).content, /Allowed diagnosis categories/);
   assert.equal(requestBodies.at(-1).response_format.type, 'json_object');
 });
