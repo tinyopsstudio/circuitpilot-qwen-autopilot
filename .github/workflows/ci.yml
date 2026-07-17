@@ -25,4 +25,6 @@ jobs:
         run: npm run check
       - name: Verify Function Compute manifest
         if: matrix.node-version == 20
+        env:
+          DASHSCOPE_API_KEY: ci-manifest-verification-placeholder
         run: npx --yes @serverless-devs/s@3.1.10 verify -t s.yaml
