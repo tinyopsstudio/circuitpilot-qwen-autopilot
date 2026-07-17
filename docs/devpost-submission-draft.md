@@ -78,7 +78,7 @@ Qwen Cloud, Alibaba Cloud Function Compute, Serverless Devs, Node.js, HTML, CSS,
 - Architecture proof: https://github.com/tinyopsstudio/circuitpilot-qwen-autopilot/blob/main/docs/architecture.png
 - Alibaba deployment proof: https://github.com/tinyopsstudio/circuitpilot-qwen-autopilot/blob/main/s.yaml
 - Video: `[ADD PUBLIC VIDEO URL]`
-- Build article: `[ADD PUBLIC ARTICLE URL]`
+- Build article: https://tinyopsstudio.com/building-qwen-agent-human-approval
 
 ## Final verification before submit
 
@@ -88,6 +88,6 @@ Qwen Cloud, Alibaba Cloud Function Compute, Serverless Devs, Node.js, HTML, CSS,
 - [ ] Public repository description and homepage point to the live demo.
 - [ ] Architecture image renders on GitHub.
 - [ ] Video is public and under three minutes.
-- [ ] Build article is public and linked for the bonus prize.
+- [x] Build article is public and linked for the bonus prize.
 - [ ] Devpost project is entered as TinyOps Studio LLC in the Autopilot Agent track.
 - [ ] Prior-work disclosure remains intact.

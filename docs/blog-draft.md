@@ -66,6 +66,8 @@ The demo intentionally keeps state in memory and executes only against fixtures.
 
 The broader lesson is that an operational AI agent does not need unrestricted authority to be useful. Qwen handles the ambiguous part: deciding what evidence matters and connecting it into a diagnosis. Deterministic software handles the irreversible part: deciding what is allowed.
 
+Published article: https://tinyopsstudio.com/building-qwen-agent-human-approval
+
 Source: https://github.com/tinyopsstudio/circuitpilot-qwen-autopilot
 
 Live demo: `[ADD FUNCTION COMPUTE URL]`
