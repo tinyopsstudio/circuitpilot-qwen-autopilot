@@ -1,0 +1,7 @@
+.git/
+.github/
+.s/
+coverage/
+docs/
+test/
+.env

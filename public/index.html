@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CircuitPilot is a Qwen-powered workflow incident response agent with human approval gates.">
+  <title>CircuitPilot | TinyOps Studio</title>
+  <link rel="icon" href="/assets/tinyops-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/tinyops-mark.svg" alt="TinyOps Studio" width="36" height="36">
+      <div>
+        <div class="product-name">CircuitPilot</div>
+        <div class="brand-name">TinyOps Studio</div>
+      </div>
+    </div>
+    <div class="topbar-status">
+      <span class="environment-pill" id="providerStatus">
+        <span class="status-dot"></span>
+        Connecting
+      </span>
+      <button class="icon-button" id="refreshButton" type="button" aria-label="Refresh run" title="Refresh run">
+        <i data-lucide="refresh-cw" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="scenario-pane" aria-labelledby="scenarioHeading">
+      <div class="pane-heading">
+        <div>
+          <span class="eyebrow">Incident queue</span>
+          <h1 id="scenarioHeading">Workflow signals</h1>
+        </div>
+        <span class="count-badge" id="scenarioCount">0</span>
+      </div>
+      <div class="scenario-list" id="scenarioList" aria-live="polite"></div>
+    </aside>
+
+    <section class="run-pane" aria-labelledby="runHeading">
+      <div class="run-toolbar">
+        <div class="run-title-wrap">
+          <span class="eyebrow" id="selectedSeverity">Select an incident</span>
+          <h2 id="runHeading">No active diagnosis</h2>
+          <p id="incidentMessage">Choose a workflow signal from the queue.</p>
+        </div>
+        <button class="primary-button" id="diagnoseButton" type="button" disabled>
+          <i data-lucide="activity" aria-hidden="true"></i>
+          <span>Diagnose incident</span>
+        </button>
+      </div>
+
+      <div class="workflow-strip" id="workflowStrip" aria-label="Workflow graph"></div>
+
+      <div class="run-empty" id="runEmpty">
+        <div class="empty-icon"><i data-lucide="scan-search" aria-hidden="true"></i></div>
+        <p>Incident evidence and agent activity will appear here.</p>
+      </div>
+
+      <div class="run-content is-hidden" id="runContent">
+        <section class="diagnosis-band" aria-labelledby="diagnosisHeading">
+          <div class="diagnosis-main">
+            <span class="eyebrow">Qwen diagnosis</span>
+            <h3 id="diagnosisHeading"></h3>
+            <p id="diagnosisRootCause"></p>
+          </div>
+          <div class="confidence-meter">
+            <span>Confidence</span>
+            <strong id="confidenceValue">0%</strong>
+            <div class="meter-track"><div class="meter-fill" id="confidenceFill"></div></div>
+          </div>
+        </section>
+
+        <section class="evidence-section" aria-labelledby="evidenceHeading">
+          <div class="section-heading">
+            <h3 id="evidenceHeading">Verified evidence</h3>
+            <span id="runDuration"></span>
+          </div>
+          <div class="evidence-table-wrap">
+            <table>
+              <thead><tr><th>Diagnostic</th><th>Result</th><th>Time</th></tr></thead>
+              <tbody id="evidenceTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="timeline-section" aria-labelledby="timelineHeading">
+          <div class="section-heading"><h3 id="timelineHeading">Agent timeline</h3></div>
+          <ol class="timeline" id="timelineList"></ol>
+        </section>
+      </div>
+    </section>
+
+    <aside class="approval-pane" aria-labelledby="approvalHeading">
+      <div class="pane-heading approval-heading">
+        <div>
+          <span class="eyebrow">Human checkpoint</span>
+          <h2 id="approvalHeading">Approval queue</h2>
+        </div>
+        <i data-lucide="shield-check" aria-hidden="true"></i>
+      </div>
+      <div class="approval-summary" id="approvalSummary">
+        <span class="summary-value">0</span>
+        <span class="summary-label">actions pending</span>
+      </div>
+      <div class="action-list" id="actionList">
+        <div class="action-empty">No remediation plan is active.</div>
+      </div>
+      <div class="sandbox-state" id="sandboxState">
+        <div class="sandbox-title"><i data-lucide="box" aria-hidden="true"></i>Sandbox state</div>
+        <dl>
+          <div><dt>Status</dt><dd id="workflowStatus">-</dd></div>
+          <div><dt>Settings</dt><dd id="workflowSettings">-</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+%%{init: {"theme":"base","themeVariables":{"background":"#ffffff","primaryColor":"#e4f4ef","primaryTextColor":"#17201e","primaryBorderColor":"#1b725f","lineColor":"#64706c","secondaryColor":"#eaf3fc","tertiaryColor":"#f4f6f5","clusterBkg":"#f8faf9","clusterBorder":"#aab6b2","fontFamily":"Inter, Arial, sans-serif"}}}%%
+flowchart LR
+  Operator["Operations lead"] --> UI["Incident queue<br/>Evidence and approvals"]
+
+  subgraph Alibaba["Alibaba Cloud Function Compute"]
+    API["CircuitPilot<br/>HTTP API"] --> Agent["Bounded agent<br/>state machine"]
+    Agent --> Policy["Independent<br/>action policy"]
+    Policy -->|"Approved only"| Sandbox["Isolated workflow<br/>sandbox"]
+    API --> Audit["Structured<br/>audit logs"]
+    Agent --> Audit
+    Policy --> Audit
+  end
+
+  UI -->|"HTTPS"| API
+  Agent <-->|"Redacted context<br/>Tool calls and JSON plan"| Qwen["Qwen Cloud<br/>qwen3.7-plus"]
+  Agent <-->|"Bounded results"| Tools["Read-only diagnostics<br/>Graph, health, contract,<br/>retry and blast radius"]
+  Policy -->|"Consequential action"| UI
+  Policy -->|"Unknown action"| Blocked["Blocked"]
+  UI -->|"Approve or reject"| Policy
+
+  classDef cloud fill:#eaf3fc,stroke:#2563a6,color:#17201e;
+  classDef core fill:#e4f4ef,stroke:#1b725f,color:#17201e;
+  classDef guard fill:#fff4df,stroke:#b56b16,color:#17201e;
+  classDef stop fill:#fceaea,stroke:#a63636,color:#17201e;
+  class Qwen,API,Audit cloud;
+  class Agent,UI,Sandbox,Tools core;
+  class Policy guard;
+  class Blocked stop;

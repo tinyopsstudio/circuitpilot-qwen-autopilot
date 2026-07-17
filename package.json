@@ -1,0 +1,24 @@
+{
+  "name": "circuitpilot-qwen-autopilot",
+  "version": "0.1.0",
+  "description": "A Qwen-powered, human-approved workflow incident response agent.",
+  "type": "module",
+  "private": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "benchmark": "node scripts/run-benchmark.js",
+    "check": "npm test && node scripts/run-benchmark.js --assert"
+  },
+  "keywords": [
+    "qwen",
+    "agent",
+    "workflow-automation",
+    "incident-response",
+    "human-in-the-loop"
+  ],
+  "license": "MIT"
+}

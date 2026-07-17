@@ -1,0 +1,38 @@
+edition: 3.0.0
+name: circuitpilot-qwen-autopilot
+access: default
+
+resources:
+  circuitpilot:
+    component: fc3
+    props:
+      region: ap-southeast-1
+      functionName: circuitpilot-qwen-autopilot
+      description: Qwen-powered workflow incident response with human approval gates
+      runtime: custom.debian10
+      code: ./
+      timeout: 120
+      memorySize: 512
+      diskSize: 512
+      cpu: 0.5
+      instanceConcurrency: 20
+      environmentVariables:
+        PORT: "9000"
+        QWEN_MODEL: qwen3.7-plus
+        FC_REGION: ap-southeast-1
+      customRuntimeConfig:
+        command:
+          - /var/fc/lang/nodejs20/bin/node
+        args:
+          - src/server.js
+      triggers:
+        - triggerName: public-http
+          triggerType: http
+          qualifier: LATEST
+          triggerConfig:
+            authType: anonymous
+            disableURLInternet: false
+            methods:
+              - GET
+              - POST
+              - OPTIONS
