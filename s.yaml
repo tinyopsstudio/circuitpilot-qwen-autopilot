@@ -1,6 +1,6 @@
 edition: 3.0.0
 name: circuitpilot-qwen-autopilot
-access: default
+access: circuitpilot_serverless_devs_key
 
 resources:
   circuitpilot:
@@ -18,8 +18,9 @@ resources:
       instanceConcurrency: 20
       environmentVariables:
         PORT: "9000"
-        QWEN_MODEL: qwen3.7-plus
-        FC_REGION: ap-southeast-1
+        DASHSCOPE_API_KEY: ${env('DASHSCOPE_API_KEY')}
+        QWEN_BASE_URL: ${env('QWEN_BASE_URL', 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1')}
+        QWEN_MODEL: ${env('QWEN_MODEL', 'qwen3.7-plus')}
       customRuntimeConfig:
         command:
           - /var/fc/lang/nodejs20/bin/node

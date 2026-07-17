@@ -70,11 +70,16 @@ The deterministic benchmark covers four failure classes: connector authenticatio
 The repository includes a Serverless Devs 3 configuration for Function Compute in Singapore.
 
 ```bash
+export circuitpilot_serverless_devs_key='{"AccountID":"...","AccessKeyID":"...","AccessKeySecret":"..."}'
+export DASHSCOPE_API_KEY="your-qwen-cloud-key"
+export QWEN_BASE_URL="https://your-workspace-id.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
 npx @serverless-devs/s@3.1.10 verify -t s.yaml
 npx @serverless-devs/s@3.1.10 deploy -t s.yaml --assume-yes
 ```
 
-Set `DASHSCOPE_API_KEY` as a Function Compute environment variable through the secure deployment environment. Do not place it in `s.yaml`. The public HTTP trigger serves the application and API from the same function, while Function Compute captures structured audit logs emitted on every run and operator decision.
+`circuitpilot_serverless_devs_key` follows Serverless Devs' environment-backed credential format. Use a least-privilege RAM user. The manifest resolves the Qwen key and endpoint from the deployment process and passes them to Function Compute; do not place real credentials in `s.yaml`. If `QWEN_BASE_URL` is omitted, the Singapore shared DashScope endpoint is used. The API key and endpoint must belong to the same region.
+
+The public HTTP trigger serves the application and API from the same function, while Function Compute captures structured audit logs emitted on every run and operator decision.
 
 ## Safety model
 
