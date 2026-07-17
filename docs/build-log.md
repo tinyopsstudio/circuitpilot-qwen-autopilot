@@ -26,5 +26,8 @@ No prior project contained Qwen Cloud integration, model tool calling, workflow 
 - Added unit, API, policy, planner, and safety benchmark coverage.
 - Added Alibaba Cloud Function Compute deployment configuration.
 - Added architecture, security, integration, benchmark, and build documentation.
+- Published the open-source repository at https://github.com/tinyopsstudio/circuitpilot-qwen-autopilot.
+- Added Node.js 20 and 22 continuous integration plus Serverless Devs manifest verification.
+- Completed Qwen Cloud signup through business-email verification, country selection, and routine terms; the platform then presented an image CAPTCHA for owner completion.
 
-Future entries will record the live Qwen smoke test, Alibaba Cloud deployment, public repository, demo video, and Devpost submission.
+Future entries will record the live Qwen smoke test, Alibaba Cloud deployment, demo video, build article, and Devpost submission.
