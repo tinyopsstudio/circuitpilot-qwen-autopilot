@@ -25,6 +25,16 @@ The browser talks only to the CircuitPilot API on Alibaba Cloud Function Compute
 
 The editable diagram source is in [`docs/architecture.mmd`](docs/architecture.mmd).
 
+## GOAI Agent Infra evolution
+
+CircuitPilot is being extended into a four-role incident-response team for the GOAI Global Open-source AI Challenge: Triage Coordinator, Evidence Investigator, Recovery Planner, and Recovery Verifier. A deterministic Policy Gate remains outside the agent team so no agent can approve its own consequential action.
+
+- [GOAI project proposal](docs/goai-proposal.md)
+- [AgentTeams design mapping](docs/agentteams-design.md)
+- [GOAI Agent Identity list](docs/goai-agent-identities.md)
+- [GOAI Skill inventory](docs/goai-skill-inventory.md)
+- [Reusable workflow incident response Skill](skills/workflow-incident-response/SKILL.md)
+
 ## Run locally
 
 Requirements: Node.js 20 or later.
